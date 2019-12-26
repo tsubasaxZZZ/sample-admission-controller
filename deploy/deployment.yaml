@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admission-controller
+  labels:
+    name: admission-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admission-controller
+  template:
+    metadata:
+      labels:
+        app: admission-controller
+    spec:
+      containers:
+      - name: admission-controller
+        image: tokibi/sample-admission-controller
+        command:
+        - admission-controller
+        - --tls-cert-file=etc/admission-controller/certs/cert.pem
+        - --tls-key-file=etc/admission-controller/certs/key.pem
+        volumeMounts:
+          - name: cert-volume
+            mountPath: /etc/admission-controller/certs
+            readOnly: true
+      volumes:
+        - name: cert-volume
+          secret:
+            secretName: admission-controller-certs
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admission-controller
+spec:
+  selector:
+    app: admission-controller
+  ports:
+  - port: 443
+    targetPort: 8080
