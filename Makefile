@@ -6,3 +6,5 @@ image/build:
 
 image/push:
 	docker push tokibi/sample-admission-controller
+
+image/update: image/build image/push
