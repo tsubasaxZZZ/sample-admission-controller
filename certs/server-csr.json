@@ -7,6 +7,8 @@
   "hosts": [
     "127.0.0.1",
     "localhost",
+    "admission-controller.kube-public.svc",
+    "admission-controller.kube-public.svc.cluster",
     "admission-controller.kube-public.svc.cluster.local"
   ]
 }
