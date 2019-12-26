@@ -21,3 +21,4 @@ cert/generate:
 deploy:
 	kubectl apply -f deploy/
 
+.PHONY: build deploy
