@@ -6,7 +6,9 @@ spec:
   containers:
   - name: valid-pod
     image: alpine:latest
-
+    command:
+      - "sleep"
+      - "1"
 ---
 apiVersion: v1
 kind: Pod
@@ -16,6 +18,9 @@ spec:
   containers:
   - name: invalid-pod
     image: alpine:latest
+    command:
+      - "sleep"
+      - "1"
   volumes:
   - name: hostpath-volume
     hostPath:
