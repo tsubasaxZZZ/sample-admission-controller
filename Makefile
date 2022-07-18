@@ -2,10 +2,10 @@ build:
 	@go build
 
 image/build:
-	docker build -t tokibi/sample-admission-controller:latest .
+	docker build -t tsubasaxzzz/sample-admission-controller:latest .
 
 image/push:
-	docker push tokibi/sample-admission-controller
+	docker push tsubasaxzzz/sample-admission-controller
 
 image/update: image/build image/push
 

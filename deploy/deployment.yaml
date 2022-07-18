@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: admission-controller
-        image: tokibi/sample-admission-controller
+        image: tsubasaxzzz/sample-admission-controller
         command:
         - admission-controller
         - --tls-cert-file=etc/admission-controller/certs/cert.pem
